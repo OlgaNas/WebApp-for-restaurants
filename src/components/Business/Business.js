@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Business.module.css';
 
-const businessObject = {
+const business = {
     imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
     name: 'MarginOtto Pizzeria',
     address: '1010 Paddington Way',
@@ -16,34 +16,25 @@ const businessObject = {
 
 function Business() {
     return (
-        <div className='business'>
-            <img />
-            <h3 id='name'>{ }</h3>
-            <ul>
-                <li id='address'></li>
-                <li id='city'></li>
-                <li id='state'></li>
-                <li id='zipcode'></li>
-                <li id='category'></li>
-                <li id='rating'></li>
-                <li id='reviewCount'></li>
-            </ul>
+        <div className={styles.Business}>
+            <div className={styles.imageContainer}>
+                <img src={business.imageSrc} alt="" />
+            </div>
+            <h2>{business.name}</h2>
+            <div className={styles.BusinessInformation}>
+                <ul>
+                    <li>{business.address}</li>
+                    <li>{business.city}</li>
+                    <li>{business.state}</li>
+                    <li>{business.zipCode}</li>
+                    <li>{business.category.toUpperCase()}</li>
+                    <li className={styles.rating}>{`${business.rating} ⭐`}</li>
+                    <li>{`${business.reviewCount} reviews`}</li>
+                </ul>
+            </div>
         </div>
-    )
+    );
 };
 
 
-const companies = [];
-const company = companies.map(Business());
-
-const searchBar = {
-    bestMatch: "curl --request GET \
-    --url 'https://api.yelp.com/v3/businesses/search?sort_by=best_match&limit=20' \
-    --header 'accept: application/json'",
-    highestRated: "curl --request GET \
-    --url 'https://api.yelp.com/v3/businesses/search?sort_by=rating&limit=20' \
-    --header 'accept: application/json'",
-    mostReviewed: "curl --request GET \
-    --url 'https://api.yelp.com/v3/businesses/search?sort_by=review_count&limit=20' \
-    --header 'accept: application/json'"
-};
+export default Business;
