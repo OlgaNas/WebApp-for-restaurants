@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.module.css';
+import React from 'react';
+//import styles from './App.module.css';
 
 import BusinessList from "../BusinessList/BusinessList";
 import SearchBar from "../SearchBar/SearchBar";
 
 const App = () => {
   return (
-    <div className={styles.App}>
+    <div>
       <h1>ravenous</h1>
       <SearchBar />
       <BusinessList />
